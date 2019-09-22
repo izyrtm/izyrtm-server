@@ -7,6 +7,7 @@ import httplib2
 import os
 import call
 import time
+import datetime
 
 p = pprint.PrettyPrinter()
 BOT_MAIL = "hi-bot@monbot.hopto.org"
@@ -56,7 +57,9 @@ class ZulipBot(object):
                     panelId = '10'
                     title = '컨테이너별 메모리 사용량'
                
-                response = call.getSnapShot(sessionId, panelId)
+                now = time.gmtime(time.time())
+                now.tm_year, now.tm_mon, now.tm_mday
+                response = call.getSnapShot(sessionId, panelId, '', '')
 
                 timestamp = int(time.time()*1000.0)
                 fileName = str(timestamp)+'.png'

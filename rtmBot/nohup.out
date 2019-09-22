@@ -78,3 +78,26 @@ Traceback (most recent call last):
   File "izyrtm.py", line 44, in process
     timestamp = int(time.time()*1000.0)
 NameError: name 'time' is not defined
+/home/zulip/.local/lib/python3.6/site-packages/urllib3/connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,
+done init
+['rtm', 'snapshot', 'cmem']
+Sucessfully heard.
+1_
+b'{"message":"Logged in"}'
+Traceback (most recent call last):
+  File "izyrtm.py", line 101, in <module>
+    main()
+  File "izyrtm.py", line 97, in main
+    bot.client.call_on_each_message(bot.process)
+  File "/home/zulip/.local/lib/python3.6/site-packages/zulip/__init__.py", line 696, in call_on_each_message
+    self.call_on_each_event(event_callback, ['message'])
+  File "/home/zulip/.local/lib/python3.6/site-packages/zulip/__init__.py", line 688, in call_on_each_event
+    callback(event)
+  File "/home/zulip/.local/lib/python3.6/site-packages/zulip/__init__.py", line 695, in event_callback
+    callback(event['message'])
+  File "izyrtm.py", line 62, in process
+    response = call.getSnapShot(sessionId, panelId, '', '')
+  File "/home/zulip/izyrtm/rtmBot/call.py", line 35, in getSnapShot
+    snapShotUrl = 'https://monbot.hopto.org:3000/render/dashboard-solo/db/docker-and-system-monitoring?orgId=1&panelId='+panelId+'&from='+startDate+'&to='+endDateMil+'&width=1000&height=500'
+TypeError: must be str, not datetime.datetime

@@ -3,6 +3,7 @@ import requests, json
 import time
 import zulip
 import os
+import datetime
 
 filePath = os.getcwd()+'/snapshot/'
 
@@ -20,8 +21,18 @@ def getSessionId():
     cookieValue = response.cookies.get('grafana_session')
     return cookieValue
 
-def getSnapShot(sessionId, panelId):
-    snapShotUrl = 'https://monbot.hopto.org:3000/render/dashboard-solo/db/docker-and-system-monitoring?orgId=1&panelId='+panelId+'&from=1568985607884&to=1569072007884&width=1000&height=500'
+def getSnapShot(sessionId, panelId, startDate, endDate):
+    
+    if startDate is '':
+        endDate = datetime.datetime.now()
+        endDateMil = str(int(endDate.timestamp()*1000))
+        startDate = endDate - datetime.timedelta(hours = 3)
+        startDateMil = str(int(startDate.timestamp()*1000))
+    else:
+        startDateMil = startDate
+        endDateMil = endDate
+
+    snapShotUrl = 'https://monbot.hopto.org:3000/render/dashboard-solo/db/docker-and-system-monitoring?orgId=1&panelId='+panelId+'&from='+startDateMil+'&to='+endDateMil+'&width=1000&height=500'
     snapShotCookies = {'grafana_session': sessionId}
     #snapShotHeader = {'Content-Type':'application/json'}
 
@@ -58,7 +69,7 @@ def getZulipFilePath(result):
 
 if __name__ == '__main__':
     sessionId = getSessionId()
-    response = getSnapShot(sessionId, '8')
+    response = getSnapShot(sessionId, '8', '','')
 
     timestamp = int(time.time()*1000.0)
     fileName = str(timestamp)+'.png'
