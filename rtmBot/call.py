@@ -20,8 +20,8 @@ def getSessionId():
     cookieValue = response.cookies.get('grafana_session')
     return cookieValue
 
-def getSnapShot(sessionId):
-    snapShotUrl = 'https://monbot.hopto.org:3000/render/dashboard-solo/db/docker-and-system-monitoring?orgId=1&panelId=8&from=1568985607884&to=1569072007884&width=1000&height=500'
+def getSnapShot(sessionId, panelId):
+    snapShotUrl = 'https://monbot.hopto.org:3000/render/dashboard-solo/db/docker-and-system-monitoring?orgId=1&panelId='+panelId+'&from=1568985607884&to=1569072007884&width=1000&height=500'
     snapShotCookies = {'grafana_session': sessionId}
     #snapShotHeader = {'Content-Type':'application/json'}
 
@@ -58,7 +58,7 @@ def getZulipFilePath(result):
 
 if __name__ == '__main__':
     sessionId = getSessionId()
-    response = getSnapShot(sessionId)
+    response = getSnapShot(sessionId, '8')
 
     timestamp = int(time.time()*1000.0)
     fileName = str(timestamp)+'.png'

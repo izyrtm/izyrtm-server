@@ -40,7 +40,23 @@ class ZulipBot(object):
         if content[0].lower() == "rtm" or content[0] == "@**rtm**":
             if content[1] == "snapshot" :
                 sessionId = call.getSessionId()
-                response = call.getSnapShot(sessionId)
+
+                panelId = '8' #default
+                title = '컨테이너별 네트워크 트래픽'
+                if content[2] is not None and content[2] == 'mem' :
+                    panelId = '20'
+                    title = '메모리 사용량'
+                elif content[2] is not None and content[2] == 'network' :
+                    panelId = '8'
+                    title = '컨테이너별 네트워크 트래픽'
+                elif content[2] is not None and content[2] == 'ccpu' or  content[2] == 'cpu':
+                    panelId = '1'
+                    title = '컨테이너별 CPU 사용량'
+                elif content[2] is not None and content[2] == 'cmem' :
+                    panelId = '10'
+                    title = '컨테이너별 메모리 사용량'
+               
+                response = call.getSnapShot(sessionId, panelId)
 
                 timestamp = int(time.time()*1000.0)
                 fileName = str(timestamp)+'.png'
@@ -52,7 +68,7 @@ class ZulipBot(object):
                     "subject": msg["subject"],
                     "to": msg["display_recipient"],
                     #"content": "[zulip-org-logo.png](https://monbot.hopto.org/user_uploads/3/4a/2NXyjQ72gL_UNc_3Lf4MrF4C/OUTPUT.png)"
-                    "content": "(https://monbot.hopto.org"+uploadedFileUri+")"
+                    "content": "["+title+"](https://monbot.hopto.org"+uploadedFileUri+")"
                     })
 
             else:
