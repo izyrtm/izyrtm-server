@@ -15,7 +15,7 @@ class ZulipBot(object):
 	def __init__(self):
 		self.client = zulip.Client(site="https://monbot.hopto.org")
 		self.subscribe_all()
-						
+										
 		print("done init")
 		self.subkeys = ["translate", "hackernews", "hn", "hotel", "HN", "askme", "cricnews", "movie", "currency", "holiday", "lyrics"]
 
@@ -34,17 +34,26 @@ class ZulipBot(object):
 		print(content)
 
 		if sender_email == BOT_MAIL:
-			return 
+				return 
 
 		print("Sucessfully heard.")
 
 		if content[0].lower() == "rtm" or content[0] == "@**rtm**":
-			self.client.send_message({
-				"type": "stream",
-				"subject": msg["subject"],
-				"to": msg["display_recipient"],
-				"content": content[1]
-				})
+			if content[1] == "snapshot" :
+				self.client.send_message({
+					"type": "stream",
+					"subject": msg["subject"],
+					"to": msg["display_recipient"],
+					"content": "[zulip-org-logo.png](https://monbot.hopto.org/user_uploads/3/4a/2NXyjQ72gL_UNc_3Lf4MrF4C/OUTPUT.png)"
+					})
+		
+			else:
+				self.client.send_message({
+					"type": "stream",
+					"subject": msg["subject"],
+					"to": msg["display_recipient"],
+					"content": content[1]
+					})
 		
 		elif "rtm" in content and content[0] != "rtm":
 			self.client.send_message({
@@ -57,12 +66,13 @@ class ZulipBot(object):
 			return
 
 def main():
-	bot = ZulipBot()
-	bot.client.call_on_each_message(bot.process)
+        bot = ZulipBot()
+        bot.client.call_on_each_message(bot.process)
 
 if __name__ == "__main__":
-	try:
-		main()
-	except KeyboardInterrupt:
-		print("Thanks for using izyRtm Bot. Bye!")
-		sys.exit(0)
+        try:
+                main()
+        except KeyboardInterrupt:
+                print("Thanks for using izyRtm Bot. Bye!")
+                sys.exit(0)
+
