@@ -21,10 +21,11 @@ bApiKey = ''
 class rtmBot(object):
 
     def __init__(self):
+        print("done init1 -> "+str(bName)+' / '+bSite+' / '+bEmail+' / '+bApiKey)
         self.client = zulip.Client(site=bSite, email=bEmail, api_key=bApiKey)
         self.subscribe_all()
 
-        print("done init -> "+str(bName)+' / '+bSite+' / '+bEmail+' / '+bApiKey)
+        print("done init2 -> "+str(bName)+' / '+bSite+' / '+bEmail+' / '+bApiKey)
         
     def subscribe_all(self):
         json = self.client.get_streams()["streams"]
