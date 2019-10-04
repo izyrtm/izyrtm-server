@@ -110,8 +110,9 @@ if __name__ == "__main__":
         sys.exit(0)
     
     bName   = sys.argv[1]
-    bEmail  = sys.argv[2]
-    bApiKey = sys.argv[3]
+    bApiKey = sys.argv[2]
+    bEmail  = sys.argv[3]
+    
 
     try:
         main()
