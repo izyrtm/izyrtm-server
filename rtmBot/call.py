@@ -51,8 +51,8 @@ def saveFile(fileName, response):
 
     open(filePath+fileName, 'wb').write(response.content)
 
-def uploadFile(fileName):
-    client = zulip.Client(config_file="~/.zuliprc")
+def uploadFile(fileName, bSite, bEmail, bApiKey):
+    client = zulip.Client(site=bSite, email=bEmail, api_key=bApiKey)
 
     # Upload a file
     path_to_file = filePath + fileName
@@ -76,4 +76,4 @@ if __name__ == '__main__':
     timestamp = int(time.time()*1000.0)
     fileName = str(timestamp)+'.png'
     saveFile(fileName, response)
-    uploadedFileUri = uploadFile(fileName)
+    #uploadedFileUri = uploadFile(fileName)
