@@ -8,7 +8,7 @@ docker-compose rm -s
 # bot run
 nohup python3 izyrtm.py &
 
-#check process (example)
+# check process (example)
 zulip@hanhost:~/izyrtm/rtmBot$ ps -ef | grep izyrtm
 
 zulip    24059     1  0 00:55 pts/2    00:00:00 python3 /home/zulip/izyrtm/rtmBot/izyrtm_node.py 2 0erVHGVEPN9diAkCRQ2o5z4YShIAmcMo noti-bot@monbot.hopto.org
