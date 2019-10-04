@@ -14,6 +14,7 @@ def getSessionId():
     loginHeader = {'Content-Type':'application/json'}
     loginUrl = izyrtm_prop.apm_url+'/login'
 
+    print('1_'+loginUrl+' / '+izyrtm_prop.apm_id+' / '+izyrtm_prop.apm_pw)
     response = requests.post(url=loginUrl, headers=loginHeader, data=json.dumps(loginParams), verify=False)
     #print(response.json())
     #print(response.headers)
