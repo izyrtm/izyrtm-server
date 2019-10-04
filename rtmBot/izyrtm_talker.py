@@ -48,7 +48,26 @@ if __name__ == "__main__":
 
         boo = False
         if boo is True:
-            main('error상황창_20191005', 'general', 'izyrtm 관련인들 초대합니다.')
+            #main('error상황창_20191005', 'general', 'izyrtm 상황 발생!!')
+            #main('error상황창_20191005', 'general', 'izyrtm 관련인들 초대합니다.')
+            #main('error상황창_20191005', 'general', 'izyrtm 네트워크 트래픽이 임계치를 초과했습니다.')
+            #이미지 공유
+            #han, rtm izyrtm 시스템 롤링 재기동 진행
+            #main('error상황창_20191005', 'general', 'izyrtm 시스템 롤링 재기동 수행하겠습니다.')
+            #main('error상황창_20191005', 'general', 'izyrtm a01 서버 재기동 완료 (1/4)')
+            #main('error상황창_20191005', 'general', 'izyrtm a02 서버 재기동 완료 (2/4)')
+            #main('error상황창_20191005', 'general', 'izyrtm a03 서버 재기동 완료 (3/4)')ㅁㅁ
+            #main('error상황창_20191005', 'general', 'izyrtm a04 서버 재기동 완료 (4/4)')
+            #main('error상황창_20191005', 'general', 'izyrtm 서버 전체 재기동 완료되었습니다.')
+            
+            #main('error상황창_20191005', 'general', 'izyrtm 서버 네트워크 트래픽 현황 재공유합니다.')
+            #이미지 공유
+            #han, rtm 메일 공유
+            #main('error상황창_20191005', 'general', 'izyrtm 상황창 대화내역 메일로 발송하겠습니다.')
+            #han, rtm 상황 종료
+            main('error상황창_20191005', 'general', 'izyrtm 상황창 종료합니다.')
+            
+            
         else:
             bot = rtmBot()
             sessionId = izyrtm_call.getSessionId()
