@@ -8,13 +8,14 @@ import os
 import call
 import time
 import datetime
+import izyrtm_prop
 
 p = pprint.PrettyPrinter()
 BOT_MAIL = "hi-bot@monbot.hopto.org"
 
 class ZulipBot(object):
     def __init__(self):
-        self.client = zulip.Client(site="https://monbot.hopto.org")
+        self.client = zulip.Client(site=izyrtm_prop.domain)
         self.subscribe_all()
 
         print("done init")
@@ -71,7 +72,7 @@ class ZulipBot(object):
                     "subject": msg["subject"],
                     "to": msg["display_recipient"],
                     #"content": "[zulip-org-logo.png](https://monbot.hopto.org/user_uploads/3/4a/2NXyjQ72gL_UNc_3Lf4MrF4C/OUTPUT.png)"
-                    "content": "["+title+"](https://monbot.hopto.org"+uploadedFileUri+")"
+                    "content": "["+title+"]("+izyrtm_prop.domain+uploadedFileUri+")"
                     })
 
             else:

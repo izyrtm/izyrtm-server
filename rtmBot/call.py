@@ -4,14 +4,15 @@ import time
 import zulip
 import os
 import datetime
+import izyrtm_prop
 
 filePath = os.getcwd()+'/snapshot/'
 
 def getSessionId():
 
-    loginParams = {'user': 'admin', 'password':'New1234!'}
+    loginParams = {'user': izyrtm_prop.apm_id, 'password':izyrtm_prop.apm_pw}
     loginHeader = {'Content-Type':'application/json'}
-    loginUrl = 'https://monbot.hopto.org:3000/login'
+    loginUrl = izyrtm_prop.apm_url+'/login'
 
     response = requests.post(url=loginUrl, headers=loginHeader, data=json.dumps(loginParams), verify=False)
     #print(response.json())
@@ -32,7 +33,7 @@ def getSnapShot(sessionId, panelId, startDate, endDate):
         startDateMil = startDate
         endDateMil = endDate
 
-    snapShotUrl = 'https://monbot.hopto.org:3000/render/dashboard-solo/db/docker-and-system-monitoring?orgId=1&panelId='+panelId+'&from='+startDateMil+'&to='+endDateMil+'&width=1000&height=500'
+    snapShotUrl = izyrtm_prop.apm_url+'/render/dashboard-solo/db/docker-and-system-monitoring?orgId=1&panelId='+panelId+'&from='+startDateMil+'&to='+endDateMil+'&width=1000&height=500'
     snapShotCookies = {'grafana_session': sessionId}
     #snapShotHeader = {'Content-Type':'application/json'}
 
