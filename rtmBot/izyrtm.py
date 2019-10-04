@@ -57,6 +57,7 @@ def main():
 
 if __name__ == "__main__":
     if len(sys.argv) is 2:
+        print(sys.argv[1])
         if sys.argv[1] is 'stop':
             stopAll()
         elif sys.argv[1] is 'status':
