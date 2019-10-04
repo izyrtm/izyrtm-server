@@ -1,0 +1,8 @@
+select list start
+2 / noti-bot@monbot.hopto.org / 0erVHGVEPN9diAkCRQ2o5z4YShIAmcMo / NOTI / 전체 공지사항 / stream:Notification / hello@gmail.com / Y
+4 / hi-bot@monbot.hopto.org / GEfnvBUnJ4s17aUz7IrrhYpZmGkTl1xJ / HC / App Health Check  / error상황창_20190920 / naver, google / Y
+5 / izyrtm-bot@monbot.hopto.org / SDTqdpwAdJobKlQbqSy1Bxz5F3xUwxxm / APM / APM 관제 / 관제상황창 / naver, google / Y
+select list end
+run bot : 2 / https://monbot.hopto.org / noti-bot@monbot.hopto.org / 0erVHGVEPN9diAkCRQ2o5z4YShIAmcMo
+run bot : 4 / https://monbot.hopto.org / hi-bot@monbot.hopto.org / GEfnvBUnJ4s17aUz7IrrhYpZmGkTl1xJ
+run bot : 5 / https://monbot.hopto.org / izyrtm-bot@monbot.hopto.org / SDTqdpwAdJobKlQbqSy1Bxz5F3xUwxxm
