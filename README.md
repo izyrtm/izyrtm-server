@@ -1,17 +1,17 @@
-# izyrtm
+## izyrtm
 docker-compose up -d
 
 
-# rm all
+## rm all
 docker-compose rm -s
 
-# bot run
+## bot run
 nohup python3 izyrtm.py &
 
-# how to use
-start izyrtmDaemon -> python3 izyrtm.py start  
-stop izyrtmDaemon -> python3 izyrtm.py stop
-status izyrtmDaemon ->python3 izyrtm.py status
+## how to use
+- start izyrtmDaemon -> python3 izyrtm.py start  
+- stop izyrtmDaemon -> python3 izyrtm.py stop
+- status izyrtmDaemon ->python3 izyrtm.py status
 
 check process (example)
 zulip@hanhost:~/izyrtm/rtmBot$ ps -ef | grep izyrtm
