@@ -5,7 +5,7 @@ import re
 import json
 import httplib2
 import os
-import call
+import izyrtm_call
 import time
 import datetime
 import izyrtm_prop
@@ -67,12 +67,12 @@ class rtmBot(object):
                
                 now = time.gmtime(time.time())
                 now.tm_year, now.tm_mon, now.tm_mday
-                response = call.getSnapShot(sessionId, panelId, '', '')
+                response = izyrtm_call.getSnapShot(sessionId, panelId, '', '')
 
                 timestamp = int(time.time()*1000.0)
                 fileName = str(timestamp)+'.png'
-                call.saveFile(fileName, response)
-                uploadedFileUri = call.uploadFile(fileName, bSite, bEmail, bApiKey)
+                izyrtm_call.saveFile(fileName, response)
+                uploadedFileUri = izyrtm_call.uploadFile(fileName, bSite, bEmail, bApiKey)
                 
                 self.client.send_message({
                     "type": "stream",

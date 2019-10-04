@@ -69,7 +69,7 @@ class rtmBot(object):
                 timestamp = int(time.time()*1000.0)
                 fileName = str(timestamp)+'.png'
                 call.saveFile(fileName, response)
-                uploadedFileUri = call.uploadFile(fileName)
+                uploadedFileUri = call.uploadFile(fileName, )
                 
                 self.client.send_message({
                     "type": "stream",
