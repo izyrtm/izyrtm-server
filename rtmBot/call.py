@@ -40,7 +40,7 @@ def getSnapShot(sessionId, panelId, startDate, endDate):
     #snapShotParams = 'orgId=1&panelId=8&from=1568985607884&to=1569072007884&width=1000&height=500'
 
     response = requests.get(url=snapShotUrl, cookies=snapShotCookies, verify=False)
-    print('2_')
+    print('2_'+snapShotCookies)
     #print(response.content)
     return response
 
