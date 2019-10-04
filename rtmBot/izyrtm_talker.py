@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
     try:
 
-        boo = True
+        boo = False
         if boo is True:
             main('error상황창_20191005', 'general', '상황발생!!')
         else:
