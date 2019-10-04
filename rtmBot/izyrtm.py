@@ -14,14 +14,12 @@ def main():
         site = izyrtm_prop.domain
         
         if useYn is 'Y' :
-            arg = 'python3 '+os.getcwd()+'/izyrtm_node.py '+str(seqNo)+' '+botToken+' '+botEmail
+            arg = 'nohup python3 '+os.getcwd()+'/izyrtm_node.py '+str(seqNo)+' '+botToken+' '+botEmail+' &'
             #proc = subprocess.Popen(['python', arg])
             #proc = subprocess.Popen(['C:/Users/han/AppData/Local/Programs/Python/Python37-32/python.exe', arg])
-            subprocess.Popen(['nohup', arg],
-                 stdout=open('/dev/null', 'w'),
-                 stderr=open('logfile.log', 'a'),
-                 preexec_fn=os.setpgrp
-                 )
+
+            subprocess.call(arg, shell=True)
+            #subprocess.Popen(['nohup', arg], stdout=open('/dev/null', 'w'), stderr=open('logfile.log', 'a'), preexec_fn=os.setpgrp)
             #email = 'izyrtm-bot@monbot.hopto.org'
             #apiKey = 'GEfnvBUnJ4s17aUz7IrrhYpZmGkTl1xJ'
             #botName = 'rtm'
