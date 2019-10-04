@@ -61,7 +61,8 @@ if __name__ == "__main__":
             stopAll()
         elif sys.argv[1] is 'status':
             showList()
-        else:
+        elif sys.argv[1] is 'start':
+            print("izyrtm start")
             main()
-    else:
-        main()
+        else:
+            print("izyrtm.")

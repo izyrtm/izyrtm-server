@@ -21,11 +21,11 @@ bApiKey = ''
 class rtmBot(object):
 
     def __init__(self):
-        print("done init1 -> "+str(bName)+' / '+bSite+' / '+bEmail+' / '+bApiKey)
+        #print("done init1 -> "+str(bName)+' / '+bSite+' / '+bEmail+' / '+bApiKey)
         self.client = zulip.Client(site=bSite, email=bEmail, api_key=bApiKey)
         self.subscribe_all()
 
-        print("done init2 -> "+str(bName)+' / '+bSite+' / '+bEmail+' / '+bApiKey)
+        #print("done init2 -> "+str(bName)+' / '+bSite+' / '+bEmail+' / '+bApiKey)
         
     def subscribe_all(self):
         json = self.client.get_streams()["streams"]
@@ -39,12 +39,12 @@ class rtmBot(object):
         stream_name = msg['display_recipient']
         stream_topic = msg['subject']
 
-        print(content)
+        #print(content)
 
         if sender_email == bEmail:
             return
 
-        print("Sucessfully heard. / "+bName)
+        #print("Sucessfully heard. / "+bName)
 
         if content[0].lower() == bName or content[0] == "@**"+bName+"**":
             if content[1] == "snapshot" :

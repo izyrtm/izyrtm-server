@@ -22,7 +22,7 @@ def getBotList():
             result = cursor.fetchall()
             #print(result)
             # (1, 'test@test.com', 'my-passwd')
-            print('select list start')
+            #print('select list start')
             for i in result:
                 #   print(i)
                 #seq_no,bot_key,bot_token,bot_type,bot_title,topic_name,user_list,use_yn,reg_dt,mod_dt
