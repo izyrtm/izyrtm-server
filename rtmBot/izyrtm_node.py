@@ -97,7 +97,7 @@ class rtmBot(object):
                     "to": msg["display_recipient"],
                     "content": "Hey there! :blush:"
                     })
-         elif "출첵" in content and content[0] == "bot":
+        elif "출첵" in content :
                 self.client.send_message({
                     "type": "stream",
                     "subject": msg["subject"],
