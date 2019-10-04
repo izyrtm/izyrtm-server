@@ -5,6 +5,11 @@ import os
 import signal
 
 def main():
+    for line in os.popen("ps ax | grep izyrtm | grep -v grep"):
+        fields = line.split()
+        pid = fields[0]
+        os.kill(int(pid), signal.SIGKILL)
+        
     botList = izyrtm_db.getBotList()
     for i in botList:
         seqNo = i['seq_no']
