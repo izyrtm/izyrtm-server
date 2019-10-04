@@ -3,6 +3,7 @@ import izyrtm_db
 import izyrtm_bot
 import subprocess
 import os
+import signal
 
 def main():
     botList = izyrtm_db.getBotList()
@@ -29,8 +30,12 @@ def main():
             print('run bot : '+str(seqNo)+' / '+site+' / '+botEmail+' / '+botToken)
 
         else :
+            for line in os.popen("ps ax | grep " + botToken + " | grep -v grep"):
+                fields = line.split()
+                pid = fields[0]
+                os.kill(int(pid), signal.SIGKILL)
             #seq_no,bot_key,bot_token,bot_type,bot_title,topic_name,user_list,use_yn,reg_dt,mod_dt
-            print(str(i['seq_no'])+' / '+str(i['bot_key'])+' / '+str(i['bot_token'])+' / '+str(i['bot_type'])+' / '+str(i['bot_title'])+' / '+str(i['topic_name'])+' / '+str(i['user_list'])+' / '+str(i['use_yn']))
+            #print(str(i['seq_no'])+' / '+str(i['bot_key'])+' / '+str(i['bot_token'])+' / '+str(i['bot_type'])+' / '+str(i['bot_title'])+' / '+str(i['topic_name'])+' / '+str(i['user_list'])+' / '+str(i['use_yn']))
             #print("\n")
 
 if __name__ == "__main__":

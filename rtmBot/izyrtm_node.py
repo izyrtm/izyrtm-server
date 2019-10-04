@@ -48,7 +48,7 @@ class rtmBot(object):
 
         if content[0].lower() == bName or content[0] == "@**"+bName+"**":
             if content[1] == "snapshot" :
-                sessionId = call.getSessionId()
+                sessionId = izyrtm_call.getSessionId()
 
                 panelId = '8' #default
                 title = '컨테이너별 네트워크 트래픽'
