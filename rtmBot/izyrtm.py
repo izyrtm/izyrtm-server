@@ -14,7 +14,7 @@ def main():
         site = izyrtm_prop.domain
         
         if useYn is 'Y' :
-            arg = 'python '+os.getcwd()+'/izyrtm_node.py '+str(seqNo)+' '+botToken+' '+botEmail
+            arg = 'python3 '+os.getcwd()+'/izyrtm_node.py '+str(seqNo)+' '+botToken+' '+botEmail
             #proc = subprocess.Popen(['python', arg])
             #proc = subprocess.Popen(['C:/Users/han/AppData/Local/Programs/Python/Python37-32/python.exe', arg])
             subprocess.Popen(['nohup', arg],
