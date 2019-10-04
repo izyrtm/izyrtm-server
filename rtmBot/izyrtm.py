@@ -5,7 +5,7 @@ import os
 import signal
 
 def main():
-    for line in os.popen("ps ax | grep izyrtm | grep -v grep"):
+    for line in os.popen("ps ax | grep izyrtm_node | grep -v grep"):
         fields = line.split()
         pid = fields[0]
         os.kill(int(pid), signal.SIGKILL)
