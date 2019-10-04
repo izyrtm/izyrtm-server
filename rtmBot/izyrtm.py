@@ -1,6 +1,5 @@
 import izyrtm_prop
 import izyrtm_db
-import izyrtm_bot
 import subprocess
 import os
 import signal
