@@ -30,7 +30,7 @@ class rtmBot(object):
         self.client.add_subscriptions(streams)
 
 def main(subject, to, content):
-
+    bot = rtmBot()
     bot.client.send_message({
                     "type": "stream",
                     "subject": subject,
@@ -40,8 +40,6 @@ def main(subject, to, content):
                     })
     
 if __name__ == "__main__":
-    bot = rtmBot()
-    
     bSite = izyrtm_prop.domain
     bEmail = 'izyrtm-bot@monbot.hopto.org'
     bApiKey = 'SDTqdpwAdJobKlQbqSy1Bxz5F3xUwxxm'
@@ -50,8 +48,9 @@ if __name__ == "__main__":
 
         boo = False
         if boo is True:
-            main('error상황창_20191005', 'general', '상황발생!!')
+            main('error상황창_20191005', 'general', 'izyrtm 관련인들 초대합니다.')
         else:
+            bot = rtmBot()
             sessionId = izyrtm_call.getSessionId()
 
             panelId = '8' #default
