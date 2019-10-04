@@ -9,7 +9,7 @@ def showList():
     for line in os.popen("ps ax | grep izyrtm_node | grep -v grep"):
         fields = line.split()
         print(fields)
-        print('\n')
+        #print('\n')
 
 def stopAll():
     for line in os.popen("ps ax | grep izyrtm_node | grep -v grep"):
