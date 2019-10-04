@@ -10,7 +10,7 @@ def showList():
         fields = line.split()
         print(fields)
         print('\n')
-        
+
 def stopAll():
     for line in os.popen("ps ax | grep izyrtm_node | grep -v grep"):
         fields = line.split()
@@ -56,9 +56,12 @@ def main():
             #print("\n")
 
 if __name__ == "__main__":
-    if sys.argv[1] is 'stop':
-        stopAll()
-    elif sys.argv[1] is 'status':
-        showList()
+    if len(sys.argv) is 2:
+        if sys.argv[1] is 'stop':
+            stopAll()
+        elif sys.argv[1] is 'status':
+            showList()
+        else:
+            main()
     else:
         main()
