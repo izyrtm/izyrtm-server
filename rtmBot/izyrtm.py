@@ -1,105 +1,39 @@
-import pprint
-import zulip
-import sys
-import re
-import json
-import httplib2
-import os
-import call
-import time
-import datetime
 import izyrtm_prop
-
-p = pprint.PrettyPrinter()
-BOT_MAIL = "hi-bot@monbot.hopto.org"
-
-class ZulipBot(object):
-    def __init__(self):
-        self.client = zulip.Client(site=izyrtm_prop.domain)
-        self.subscribe_all()
-
-        print("done init")
-        
-    def subscribe_all(self):
-        json = self.client.get_streams()["streams"]
-        streams = [{"name": stream["name"]} for stream in json]
-        self.client.add_subscriptions(streams)
-
-    def process(self, msg):
-        content = msg["content"].split()
-        sender_email = msg["sender_email"]
-        ttype = msg["type"]
-        stream_name = msg['display_recipient']
-        stream_topic = msg['subject']
-
-        print(content)
-
-        if sender_email == BOT_MAIL:
-            return
-
-        print("Sucessfully heard.")
-
-        if content[0].lower() == "rtm" or content[0] == "@**rtm**":
-            if content[1] == "snapshot" :
-                sessionId = call.getSessionId()
-
-                panelId = '8' #default
-                title = '컨테이너별 네트워크 트래픽'
-                if content[2] is not None and content[2] == 'mem' :
-                    panelId = '20'
-                    title = '메모리 사용량'
-                elif content[2] is not None and content[2] == 'network' :
-                    panelId = '8'
-                    title = '컨테이너별 네트워크 트래픽'
-                elif content[2] is not None and content[2] == 'ccpu' or  content[2] == 'cpu':
-                    panelId = '1'
-                    title = '컨테이너별 CPU 사용량'
-                elif content[2] is not None and content[2] == 'cmem' :
-                    panelId = '10'
-                    title = '컨테이너별 메모리 사용량'
-               
-                now = time.gmtime(time.time())
-                now.tm_year, now.tm_mon, now.tm_mday
-                response = call.getSnapShot(sessionId, panelId, '', '')
-
-                timestamp = int(time.time()*1000.0)
-                fileName = str(timestamp)+'.png'
-                call.saveFile(fileName, response)
-                uploadedFileUri = call.uploadFile(fileName)
-                
-                self.client.send_message({
-                    "type": "stream",
-                    "subject": msg["subject"],
-                    "to": msg["display_recipient"],
-                    #"content": "[zulip-org-logo.png](https://monbot.hopto.org/user_uploads/3/4a/2NXyjQ72gL_UNc_3Lf4MrF4C/OUTPUT.png)"
-                    "content": "["+title+"]("+izyrtm_prop.domain+uploadedFileUri+")"
-                    })
-
-            else:
-                self.client.send_message({
-                    "type": "stream",
-                    "subject": msg["subject"],
-                    "to": msg["display_recipient"],
-                    "content": content[1]
-                    })
-
-        elif "rtm" in content and content[0] != "rtm":
-                self.client.send_message({
-                    "type": "stream",
-                    "subject": msg["subject"],
-                    "to": msg["display_recipient"],
-                    "content": "Hey there! :blush:"
-                    })
-        else:
-            return
+import izyrtm_db
+import izyrtm_bot
+import subprocess
+import os
 
 def main():
-    bot = ZulipBot()
-    bot.client.call_on_each_message(bot.process)
+    botList = izyrtm_db.getBotList()
+    for i in botList:
+        seqNo = i['seq_no']
+        botToken = i['bot_token']
+        useYn = i['use_yn']
+        botEmail = i['bot_key']
+        site = izyrtm_prop.domain
+        
+        if useYn is 'Y' :
+            arg = 'python '+os.getcwd()+'/izyrtm_node.py '+str(seqNo)+' '+botToken+' '+botEmail
+            #proc = subprocess.Popen(['python', arg])
+            #proc = subprocess.Popen(['C:/Users/han/AppData/Local/Programs/Python/Python37-32/python.exe', arg])
+            subprocess.Popen(['nohup', arg],
+                 stdout=open('/dev/null', 'w'),
+                 stderr=open('logfile.log', 'a'),
+                 preexec_fn=os.setpgrp
+                 )
+            #email = 'izyrtm-bot@monbot.hopto.org'
+            #apiKey = 'GEfnvBUnJ4s17aUz7IrrhYpZmGkTl1xJ'
+            #botName = 'rtm'
+
+            #bot = izyrtm_bot.rtmBot(seqNo, site, botEmail, botToken)
+            #bot.client.call_on_each_message(bot.process)
+            print('run bot : '+seqNo+' / '+site+' / '+botEmail+' / '+botToken)
+
+        else :
+            #seq_no,bot_key,bot_token,bot_type,bot_title,topic_name,user_list,use_yn,reg_dt,mod_dt
+            print(str(i['seq_no'])+' / '+str(i['bot_key'])+' / '+str(i['bot_token'])+' / '+str(i['bot_type'])+' / '+str(i['bot_title'])+' / '+str(i['topic_name'])+' / '+str(i['user_list'])+' / '+str(i['use_yn']))
+            #print("\n")
 
 if __name__ == "__main__":
-    try:
-        main()
-    except KeyboardInterrupt:
-        print("Thanks for using izyRtm Bot. Bye!")
-        sys.exit(0)
+    main()

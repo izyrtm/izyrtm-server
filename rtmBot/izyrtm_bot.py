@@ -9,22 +9,20 @@ import call
 import time
 import datetime
 import izyrtm_prop
-import sys
 
-#p = pprint.PrettyPrinter()
-
-bName = ''
-bSite = izyrtm_prop.domain
+p = pprint.PrettyPrinter()
 bEmail = ''
-bApiKey = ''
+bName = ''
 
 class rtmBot(object):
 
-    def __init__(self):
-        self.client = zulip.Client(site=bSite, email=bEmail, api_key=bApiKey)
+    def __init__(self, botName, site, email, apiKey):
+        bEmail = email
+        bName = botName
+        self.client = zulip.Client(site=site, email=email, api_key=apiKey)
         self.subscribe_all()
 
-        print("done init -> "+str(bName)+' / '+bSite+' / '+bEmail+' / '+bApiKey)
+        print("done init -> "+str(botName)+' / '+site+' / '+email+' / '+apiKey)
         
     def subscribe_all(self):
         json = self.client.get_streams()["streams"]
@@ -100,18 +98,14 @@ class rtmBot(object):
             return
 
 def main():
-    bot = rtmBot()
+    site = 'https://monbot.hopto.org'
+    email = 'izyrtm-bot@monbot.hopto.org'
+    apiKey = 'GEfnvBUnJ4s17aUz7IrrhYpZmGkTl1xJ'
+    botName = 'rtm'
+    bot = rtmBot(botName, site, email, apiKey)
     bot.client.call_on_each_message(bot.process)
     
 if __name__ == "__main__":
-    if len(sys.argv) is not 4:
-        print('check args')
-        sys.exit(0)
-    
-    bName   = sys.argv[1]
-    bEmail  = sys.argv[2]
-    bApiKey = sys.argv[3]
-
     try:
         main()
     except KeyboardInterrupt:
