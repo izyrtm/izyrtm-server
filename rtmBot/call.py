@@ -34,7 +34,7 @@ def getSnapShot(sessionId, panelId, startDate, endDate):
         startDateMil = startDate
         endDateMil = endDate
 
-    snapShotUrl = izyrtm_prop.snapshot_url+'/render/dashboard-solo/db/docker-and-system-monitoring?orgId=1&panelId='+panelId+'&from='+startDateMil+'&to='+endDateMil+'&width=1000&height=500'
+    snapShotUrl = izyrtm_prop.apm_url+'/render/dashboard-solo/db/docker-and-system-monitoring?orgId=1&panelId='+panelId+'&from='+startDateMil+'&to='+endDateMil+'&width=1000&height=500'
     snapShotCookies = {'grafana_session': sessionId}
     #snapShotHeader = {'Content-Type':'application/json'}
 
