@@ -19,7 +19,7 @@ def getSessionId():
     #print(response.json())
     #print(response.headers)
     print('1_')
-    print(response.content)
+    #print(response.content)
     cookieValue = response.cookies.get('grafana_session')
     return cookieValue
 
