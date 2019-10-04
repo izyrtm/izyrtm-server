@@ -28,7 +28,7 @@ def main():
 
             #bot = izyrtm_bot.rtmBot(seqNo, site, botEmail, botToken)
             #bot.client.call_on_each_message(bot.process)
-            print('run bot : '+seqNo+' / '+site+' / '+botEmail+' / '+botToken)
+            print('run bot : '+str(seqNo)+' / '+site+' / '+botEmail+' / '+botToken)
 
         else :
             #seq_no,bot_key,bot_token,bot_type,bot_title,topic_name,user_list,use_yn,reg_dt,mod_dt
