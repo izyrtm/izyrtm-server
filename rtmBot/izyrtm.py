@@ -60,7 +60,7 @@ if __name__ == "__main__":
         print(sys.argv[1])
         if sys.argv[1] is 'stop':
             stopAll()
-        elif sys.argv[1] is 'status':
+        elif sys.argv[1] is "status":
             showList()
         elif sys.argv[1] is 'start':
             print("izyrtm start")
