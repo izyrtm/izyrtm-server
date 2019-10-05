@@ -1,23 +1,40 @@
-## izyrtm
-docker-compose up -d
+# izyrtm-server
+
+izyrtm Server는 RTM 자동화를 위한 봇을 코딩없이 생성할수 있도록 도와주는 솔루션입니다. 
+
+## What's Better
+
+## Architecture
+
+## How To Use
+### Install
 
 
-## rm all
-docker-compose rm -s
+### Build
 
-## bot run
-nohup python3 izyrtm.py &
+### Run
 
-## how to use
-- start izyrtmDaemon -> python3 izyrtm.py start  
-- stop izyrtmDaemon -> python3 izyrtm.py stop
-- status izyrtmDaemon ->python3 izyrtm.py status
+### Reference
 
-check process (example)
-zulip@hanhost:~/izyrtm/rtmBot$ ps -ef | grep izyrtm
+## License
+MIT License
 
-zulip    24059     1  0 00:55 pts/2    00:00:00 python3 /home/zulip/izyrtm/rtmBot/izyrtm_node.py 2 0erVHGVEPN9diAkCRQ2o5z4YShIAmcMo noti-bot@monbot.hopto.org
+Copyright (c) 2019 izyrtm
 
-zulip    24061     1  0 00:55 pts/2    00:00:00 python3 /home/zulip/izyrtm/rtmBot/izyrtm_node.py 4 GEfnvBUnJ4s17aUz7IrrhYpZmGkTl1xJ hi-bot@monbot.hopto.org
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-zulip    24063     1  0 00:55 pts/2    00:00:00 python3 /home/zulip/izyrtm/rtmBot/izyrtm_node.py 5 SDTqdpwAdJobKlQbqSy1Bxz5F3xUwxxm izyrtm-bot@monbot.hopto.org
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
