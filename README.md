@@ -14,8 +14,6 @@ izyrtm Server는 RTM 자동화를 위한 봇을 코딩없이 생성할수 있도
 
 ### Run
 
-### Run
-
 ### Reference
 
 ## License
