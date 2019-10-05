@@ -20,18 +20,23 @@ izyrtm은 RTM 자동화를 위한 봇을 손쉽게 생성/운영 할 수 있도�
 
 ### Run
 - rtm daemon 구성
+
 ![file.png](./img/file.png)
 
 - izyrtm 실행
+
 ![izyrtm.png](./img/izyrtm.png)
 
 - izyrtm 노드 start
+
 ![start.png](./img/start.png)
 
 - izyrtm 노드 status
+
 ![status2.png](./img/status2.png)
 
 - izyrtm 노드 stop
+
 ![stop.png](./img/stop.png)
 
 
