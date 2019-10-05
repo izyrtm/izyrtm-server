@@ -17,12 +17,12 @@ izyrtm은 RTM 자동화를 위한 봇을 손쉽게 생성/운영 할 수 있도�
 https://zulip.readthedocs.io/en/stable/production/install.html
 
 2) prometheus + grafana + smtp 설치
-- 파일 다운 : docker-compose.yml, prometheus.yml
+- 파일 다운 : [docker-compose.yml](./docker-compose.yml), [prometheus.yml](./prometheus.yml)
 - 빌드/설치/실행 : docker-compose up -d
 - 삭제시 : docker-compose rm -s
 
 3) rtm daemon 설치
-- 파일 다운 : rtmBot 폴더 다운
+- 파일 다운 : [rtmBot 폴더](./rtmBot) 다운
 
 ### Run
 
