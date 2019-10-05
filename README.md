@@ -1,20 +1,39 @@
 # izyrtm-server
 
-izyrtm Server는 RTM 자동화를 위한 봇을 코딩없이 생성할수 있도록 도와주는 솔루션입니다. 
+izyrtm은 RTM 자동화를 위한 봇을 손쉽게 생성/운영 할 수 있도록 도와주는 솔루션입니다. 
 
 ## What's Better
 
 ## Architecture
 ![arch.png](./img/arch.png)
+
+- 구성 : zulip + prometheus + grafana + rtm daemon
+
 ## How To Use
 ### Install
 
+1) zulip 설치
+2) prometheus + grafana + smtp 설치
+3) rtm daemon 설치
 
 ### Build
 
 ### Run
+- rtm daemon 구성
+![file.png](./img/file.png)
 
-### Reference
+- izyrtm 실행
+![izyrtm.png](./img/izyrtm.png)
+
+- izyrtm 노드 start
+![start.png](./img/start.png)
+
+- izyrtm 노드 status
+![status2.png](./img/status2.png)
+
+- izyrtm 노드 stop
+![stop.png](./img/stop.png)
+
 
 ## License
 MIT License
