@@ -10,15 +10,26 @@ izyrtm은 RTM 자동화를 위한 봇을 손쉽게 생성/운영 할 수 있도�
 - 구성 : zulip + prometheus + grafana + rtm daemon
 
 ## How To Use
-### Install
+### Install & Build
 
 1) zulip 설치
-2) prometheus + grafana + smtp 설치
-3) rtm daemon 설치
 
-### Build
+https://zulip.readthedocs.io/en/stable/production/install.html
+
+2) prometheus + grafana + smtp 설치
+- 파일 다운 : docker-compose.yml, prometheus.yml
+- 빌드/설치/실행 : docker-compose up -d
+- 삭제시 : docker-compose rm -s
+
+3) rtm daemon 설치
+- 파일 다운 : rtmBot 폴더 다운
 
 ### Run
+
+- start izyrtmDaemon -> python3 izyrtm.py start  
+- stop izyrtmDaemon -> python3 izyrtm.py stop
+- status izyrtmDaemon ->python3 izyrtm.py status
+
 - rtm daemon 구성
 
 ![file.png](./img/file.png)
