@@ -16,7 +16,7 @@ izyrtm은 RTM 자동화를 위한 봇을 손쉽게 생성/운영 할 수 있도�
 ## Architecture
 ![arch.png](./img/arch.png)
 
-- 구성 : zulip + prometheus + grafana + rtm daemon
+- izyrtm 구성 : rtm daemon (admin ui, daemon) + apps + zulip + prometheus + grafana
 
 ## How To Use
 ### Install & Build
